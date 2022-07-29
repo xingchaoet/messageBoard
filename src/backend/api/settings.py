@@ -70,16 +70,27 @@ WSGI_APPLICATION = 'api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'docker',
+#         'USER': 'root',
+#         'PASSWORD': 'docker-root',
+#         'HOST': 'db',
+#         'PORT': 3306,
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'docker',
+        'NAME': 'message_board',
         'USER': 'root',
-        'PASSWORD': 'docker-root',
-        'HOST': 'db',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
         'PORT': 3306,
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -129,4 +140,4 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_WHITELIST = ['frontend.docker.io']
+# CORS_ORIGIN_WHITELIST = ['frontend.docker.io']

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.auth.models import User
-from django.conf.urls import url
+# from django.contrib.auth.models import User
+# from django.conf.urls import url
 from user import views
 from board import views as b_views
 # from rest_framework import routers, serializers, viewsets
