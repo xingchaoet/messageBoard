@@ -105,7 +105,7 @@ export default {
           param.append('username', this.ruleForm.username)
           param.append('pass', this.ruleForm.pass)
           param.append('email', this.ruleForm.email)
-          axios.post('http://192.168.3.6:8000/register/', param)
+          axios.post('http://message.test.local/register/', param)
             .then((res)=> {
               if (res.data == 'registersuccess') {
                 this.$notify.success({

@@ -1,13 +1,13 @@
 import os
 from typing import List
 import logging
+
 logging.basicConfig(
-level = logging.DEBUG,
-format ='%(asctime)s %(levelname)s %(message)s',)
+    level=logging.DEBUG,
+    format='%(asctime)s %(levelname)s %(message)s', )
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -18,7 +18,7 @@ SECRET_KEY = '5!(lub)x_4wkie0um(7srn71p*-y0h)l(npbm=0r=1bi39h$71'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS: List[str] = ['*'] 
+ALLOWED_HOSTS: List[str] = ['*']
 
 # Application definition
 
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'api.cors_middleware.CorsMiddleware',
+
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
@@ -66,7 +68,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'api.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -91,7 +92,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -110,7 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -124,14 +123,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
+    # Use Django's standdjango.contrib.auth.middleware.AuthenticationMiddlewareard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
@@ -140,5 +138,38 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
-# CORS_ORIGIN_WHITELIST = ['frontend.docker.io']
-CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:8080','http://192.168.3.6:8080','http://localhost:8080']
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:8080', 'http://192.168.3.6:8080', 'http://localhost:8080']
+
+SESSION_COOKIE_SAMESITE='None'
+SESSION_COOKIE_SECURE=True
+
+# CORS_ALLOW_CREDENTIALS = True
+# CORS_ORIGIN_ALLOW_ALL = False
+# # CORS_ORIGIN_WHITELIST = (
+# #     # 'http://127.0.0.1:8080',
+# # )
+#
+# CORS_ALLOW_METHODS = (
+#     'DELETE',
+#     'GET',
+#     'OPTIONS',
+#     'PATCH',
+#     'POST',
+#     'PUT',
+#     'VIEW',
+# )
+#
+# CORS_ALLOW_HEADERS = (
+#     'XMLHttpRequest',
+#     'X_FILENAME',
+#     'accept-encoding',
+#     'authorization',
+#     'content-type',
+#     'dnt',
+#     'origin',
+#     'user-agent',
+#     'x-csrftoken',
+#     'x-requested-with',
+#     'Pragma',
+#     'Cookie',
+# )

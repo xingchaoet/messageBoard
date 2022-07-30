@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import axios from 'axios'
+axios.defaults.withCredentials=true;//Cookie跨域
 import VueAxios from 'vue-axios'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
