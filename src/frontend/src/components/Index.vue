@@ -41,7 +41,7 @@ export default {
     isReload: function () {
       if (this.isReload == 'OK') {
         const vm = this;
-        axios.get('http://backend.docker.io/index/')
+        axios.get('http://192.168.3.6:8000/index/')
           .then(res => {
             vm.content = res.data
           })
@@ -52,7 +52,7 @@ export default {
   },
   mounted() {
     const vm = this;
-    axios.get('http://backend.docker.io/index/')
+    axios.get('http://192.168.3.6:8000/index/')
       .then(res => {
         vm.content = res.data
       })
@@ -65,8 +65,9 @@ export default {
       param.append('author', item.fields.author)
       param.append('created_time', item.fields.created_time)
       param.append('good', item.fields.good + 1)
-      axios.post('http://backend.docker.io/addvote/', param)
+      axios.post('http://192.168.3.6:8000/addvote/', param)
         .then(res => {
+          alert(res.data)
           return
         })
     },
@@ -77,8 +78,9 @@ export default {
       param.append('author', item.fields.author)
       param.append('created_time', item.fields.created_time)
       param.append('bad', item.fields.bad + 1)
-      axios.post('http://backend.docker.io/addrefuse/', param)
+      axios.post('http://192.168.3.6:8000/addrefuse/', param)
         .then(res => {
+          alert(res.data)
           return
         })
     },

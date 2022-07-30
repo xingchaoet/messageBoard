@@ -21,6 +21,9 @@ def login(request):
             except:
                 return HttpResponse('connect db failed')
             if sendData[0]['fields']['passwd'] == password:
+                request.session["info"] = {'id': user.id, 'name': user.username}
+                # session可以保存7天
+                request.session.set_expiry(60 * 60 * 24 * 7)
                 return HttpResponse("userpass")
         return HttpResponse("NO!!!")
 

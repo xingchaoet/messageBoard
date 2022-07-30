@@ -46,7 +46,7 @@ export default {
       let param = new URLSearchParams()
       param.append('username', this.formLabelAlign.username)
       param.append('passwd', this.formLabelAlign.passwd)
-      axios.post('http://backend.docker.io/login/', param)
+      axios.post('http://192.168.3.6:8000/login/', param)
         .then(res => {
           if(res.data == 'userpass') {
             this.$notify.success({

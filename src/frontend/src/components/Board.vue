@@ -66,7 +66,7 @@ export default {
           param.append('content', this.messForm.content)
           param.append('tag', this.messForm.tag)
           param.append('created_time', (new Date()).toLocaleString())      
-          axios.post('http://backend.docker.io/addMessage/', param)
+          axios.post('http://192.168.3.6:8000/addMessage/', param)
             .then((res)=> {
               if (res.data == 'messagesuccess') {
                 this.$notify.success({
