@@ -14,3 +14,9 @@ class User(models.Model):
         verbose_name = '用户'
         verbose_name_plural = '用户'
 
+#用户踩赞
+class UserBoardPost(models.Model):
+    userid =  models.IntegerField(max_length=11, unique=True)
+    boardpostid =  models.IntegerField(max_length=11, unique=True)
+    good = models.IntegerField(default=0)
+    bad = models.IntegerField(default=0)

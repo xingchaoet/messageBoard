@@ -31,6 +31,7 @@ def addVote(request):
     author = request.POST.get('author')
     good = request.POST.get('good')
     created_time = request.POST.get('created_time')
+
     post = Post.objects.get(author=author,created_time=created_time)
     post.good = good
     post.save()
